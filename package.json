@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/GersonSales/alpha-project-api#readme",
   "dependencies": {
+    "consign": "^0.1.6",
     "express": "^4.16.3"
   }
 }
