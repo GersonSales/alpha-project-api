@@ -5,18 +5,38 @@ module.exports = app => {
     .all(app.auth.authenticate())
 
     .put((req, res) => {
-      console.log("PUT");
-      res.sendStatus(204);
+      Users
+        .update(req.body, {where: {id: req.user.id}})
+        .then(() => {
+          res.sendStatus(204);
+        })
+        .catch(error => {
+          res.status(400).json({errorMessage: error.message});
+        });
     })
 
     .get((req, res) => {
-      console.log("GET");
-      res.sendStatus(204);
+      Users
+        .findById(req.user.id, {
+          attributes: ["id", "name", "email"]
+        })
+        .then(result => {
+          res.json(result);
+        })
+        .catch(error => {
+          res.status(400).json({errorMessage: error.message});
+        });
     })
 
     .delete((req, res) => {
-      console.log("DELETE");
-      res.sendStatus(204);
+      Users
+        .destroy({where: {id: req.user.id}})
+        .then(result => {
+          res.status(202).json(result);
+        })
+        .catch(error => {
+          res.status(400).json({errorMessage: error.message});
+        });
     });
 
   app.post('/users', (req, res) => {
@@ -25,7 +45,7 @@ module.exports = app => {
         res.json(result);
       })
       .catch(error => {
-        res.status(412).json({errorMessage: error.message})
+        res.status(412).json({errorMessage: error.message});
       });
   });
 };
