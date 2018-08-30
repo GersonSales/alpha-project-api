@@ -5,7 +5,7 @@ describe("Routes: Users", () => {
   const jwtSecret = app.libs.config.jwtSecret;
   let token;
 
-  beforeEach(done => {
+  beforeEach((done) => {
     Users
       .destroy({where: {}})
       .then(() => {
@@ -18,14 +18,14 @@ describe("Routes: Users", () => {
           .then(user => {
             token = jwt.encode({id: user.id}, jwtSecret);
             done();
-          })
+          });
       })
-      .catch(error => done(error));
+      .catch((error) => done(error));
   });
   describe("POST /users", () => {
     describe("status 200", () => {
-      it("creates a new user", done => {
-        request.post('/users')
+      it("creates a new user", (done) => {
+        request.post("/users")
           .send({
             name: "Mary",
             email: "mary@email.com",
