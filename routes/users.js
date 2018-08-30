@@ -34,7 +34,7 @@ module.exports = (app) => {
         .then((result) => {
           res.status(202).json(result);
         })
-        .catch(error => {
+        .catch((error) => {
           res.status(400).json({errorMessage: error.message});
         });
     });
