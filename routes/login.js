@@ -1,6 +1,6 @@
 const jwt = require("jwt-simple");
 
-module.exports = app => {
+module.exports = (app) => {
   app.post("/login", (req, res) => {
     const email = req.body.email,
       password = req.body.password;
@@ -15,13 +15,13 @@ module.exports = app => {
             const payload = {id: user.id};
             res.json({
               token: jwt.encode(payload, config.jwtSecret)
-            })
+            });
           }else {
             res.sendStatus(401);
           }
         })
-        .catch(error => {
-          res.status(401).json({errorMessage: error.message})
+        .catch((error) => {
+          res.status(401).json({errorMessage: error.message});
         });
     } else {
       res.sendStatus(401);
