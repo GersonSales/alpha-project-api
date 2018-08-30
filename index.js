@@ -1,6 +1,7 @@
 const express = require('express'),
-  consign = require('consign'),
-  app = express();
+  consign = require('consign');
+
+const app = express();
 
 consign({verbose : false})
   .include('libs/config.js')
