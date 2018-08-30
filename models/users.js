@@ -35,8 +35,14 @@ module.exports = (sequelize, DataType) => {
       defaultValue: false
     }
   });
-  Users.beforeCreate(user => {});
-  Users.isPassword = (encodePassword, password) => {return true};
+  Users.beforeCreate(user => {
+    const salt = bcrypt.genSaltSync();
+    user.password = bcrypt.hashSync(user.password, salt);
+  });
+  Users.isPassword = (encodePassword, password) => {
+    return bcrypt.compareSync(password, encodePassword);
+  };
+
   Users.associate = (models) => {};
   return Users;
 };
