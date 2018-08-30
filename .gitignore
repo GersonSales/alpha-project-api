@@ -60,7 +60,8 @@ typings/
 # nextdb.js build output
 .next
 
-
+#SQLite db
+*.sqlite
 
 #WEBSTORM
 
