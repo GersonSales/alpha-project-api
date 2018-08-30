@@ -1,7 +1,7 @@
 module.exports = app => {
   const Users = app.db.models.Users;
 
-  app.route('/user')
+  app.route("/user")
     .all(app.auth.authenticate())
 
     .put((req, res) => {
@@ -39,7 +39,7 @@ module.exports = app => {
         });
     });
 
-  app.post('/users', (req, res) => {
+  app.post("/users", (req, res) => {
     Users.create(req.body)
       .then(result => {
         res.json(result);

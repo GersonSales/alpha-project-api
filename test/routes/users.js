@@ -1,4 +1,4 @@
-const jwt = require('jwt-simple');
+const jwt = require("jwt-simple");
 
 describe("Routes: Users", () => {
   const Users = app.db.models.Users;

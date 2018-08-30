@@ -1,7 +1,7 @@
-const jwt = require('jwt-simple');
+const jwt = require("jwt-simple");
 
 module.exports = app => {
-  app.post('/login', (req, res) => {
+  app.post("/login", (req, res) => {
     const email = req.body.email,
       password = req.body.password;
 

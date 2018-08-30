@@ -1,5 +1,5 @@
-const passport = require('passport'),
-  passportJWT = require('passport-jwt');
+const passport = require("passport"),
+  passportJWT = require("passport-jwt");
 
 const Strategy = passportJWT.Strategy,
   ExtractJwt = passportJWT.ExtractJwt;
@@ -9,7 +9,7 @@ module.exports = app => {
   const config = app.libs.config;
   const params = {
     secretOrKey: config.jwtSecret,
-    jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken('jwt')
+    jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken("jwt")
   };
 
   const strategy = new Strategy(params, (payload, done) => {

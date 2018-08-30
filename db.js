@@ -1,6 +1,6 @@
-const  fs = require('fs'),
-  path = require('path'),
-  Sequelize = require('sequelize');
+const  fs = require("fs"),
+  path = require("path"),
+  Sequelize = require("sequelize");
 
 let db = null;
 
@@ -28,7 +28,7 @@ module.exports = app => {
     });
 
     Object.keys(db.models).forEach(key => {
-      if (db.models[key].hasOwnProperty('associate')) {
+      if (db.models[key].hasOwnProperty("associate")) {
         db.models[key].associate(db.models);
       }
     });
