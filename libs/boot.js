@@ -4,4 +4,4 @@ module.exports = app => {
       console.log(`Aplha Project is listen on ${app.get('port')}`);
     });
   });
-};  
+};
