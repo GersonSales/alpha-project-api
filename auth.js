@@ -4,7 +4,7 @@ const passport = require("passport"),
 const Strategy = passportJWT.Strategy,
   ExtractJwt = passportJWT.ExtractJwt;
 
-module.exports = app => {
+module.exports = (app) => {
   const Users = app.db.models.Users;
   const config = app.libs.config;
   const params = {
@@ -15,7 +15,7 @@ module.exports = app => {
   const strategy = new Strategy(params, (payload, done) => {
     Users
       .findById((payload.id))
-      .then(user => {
+      .then((user) => {
         if(user) {
           return done(null, {
             id: user.id,
@@ -26,19 +26,17 @@ module.exports = app => {
       })
       .catch(error => {
         done(error, null);
-      })
+      });
   });
 
   passport.use(strategy);
 
   return {
     initialize: () => {
-      return passport.initialize()
+      return passport.initialize();
     },
     authenticate: () => {
-      return passport.authenticate('jwt', config.jwtSession);
+      return passport.authenticate("jwt", config.jwtSession);
     }
-  }
-
-
+  };
 };
