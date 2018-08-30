@@ -24,7 +24,7 @@ module.exports = (app) => {
         }
           done(new Error("User not found"), null);
       })
-      .catch(error => {
+      .catch((error) => {
         done(error, null);
       });
   });

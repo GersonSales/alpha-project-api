@@ -1,4 +1,4 @@
-module.exports = app => {
+module.exports = (app) => {
   const Users = app.db.models.Users;
 
   app.route("/user")
@@ -10,7 +10,7 @@ module.exports = app => {
         .then(() => {
           res.sendStatus(204);
         })
-        .catch(error => {
+        .catch((error) => {
           res.status(400).json({errorMessage: error.message});
         });
     })
@@ -20,7 +20,7 @@ module.exports = app => {
         .findById(req.user.id, {
           attributes: ["id", "name", "email"]
         })
-        .then(result => {
+        .then((result) => {
           res.json(result);
         })
         .catch(error => {
@@ -31,7 +31,7 @@ module.exports = app => {
     .delete((req, res) => {
       Users
         .destroy({where: {id: req.user.id}})
-        .then(result => {
+        .then((result) => {
           res.status(202).json(result);
         })
         .catch(error => {
@@ -40,7 +40,8 @@ module.exports = app => {
     });
 
   app.post("/users", (req, res) => {
-    Users.create(req.body)
+    Users
+      .create(req.body)
       .then(result => {
         res.json(result);
       })

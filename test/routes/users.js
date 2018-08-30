@@ -25,7 +25,8 @@ describe("Routes: Users", () => {
   describe("POST /users", () => {
     describe("status 200", () => {
       it("creates a new user", (done) => {
-        request.post("/users")
+        request
+          .post("/users")
           .send({
             name: "Mary",
             email: "mary@email.com",

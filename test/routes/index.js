@@ -1,8 +1,8 @@
 describe("Routes: Index", () => {
   describe("GET /", () => {
-    it("returns the API status", done => {
+    it("returns the API status", (done) => {
       request
-        .get('/')
+        .get("/")
         .expect(200)
         .end((error, res) => {
           const expected = {response: "Welcome to the Alpha Project"};

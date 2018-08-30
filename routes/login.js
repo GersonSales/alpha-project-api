@@ -9,8 +9,9 @@ module.exports = (app) => {
       const config = app.libs.config;
       const Users = app.db.models.Users;
 
-      Users.findOne({where: {email: email}})
-        .then(user => {
+      Users
+        .findOne({where: {email: email}})
+        .then((user) => {
           if (Users.isPassword(user.password, password)) {
             const payload = {id: user.id};
             res.json({
