@@ -1,12 +1,12 @@
 module.exports = app => {
   const Users = app.db.models.Users;
-
-  app.route('/users')
-
-    .post((req, res) => {})
-
-    .get((req, res) => {});
-
-
-
+  app.post('/users', (req, res) => {
+    Users.create(req.body)
+      .then(result => {
+        res.json(result);
+      })
+      .catch(error => {
+        res.status(412).json({errorMessage: error.message})
+      });
+  });
 };
