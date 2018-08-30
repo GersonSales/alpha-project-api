@@ -15,7 +15,7 @@ describe("Routes: Users", () => {
             email: "user@email.com",
             password: "userPassword"
           })
-          .then(user => {
+          .then((user) => {
             token = jwt.encode({id: user.id}, jwtSecret);
             done();
           });

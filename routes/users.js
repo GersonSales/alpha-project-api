@@ -23,7 +23,7 @@ module.exports = (app) => {
         .then((result) => {
           res.json(result);
         })
-        .catch(error => {
+        .catch((error) => {
           res.status(400).json({errorMessage: error.message});
         });
     })
@@ -42,7 +42,7 @@ module.exports = (app) => {
   app.post("/users", (req, res) => {
     Users
       .create(req.body)
-      .then(result => {
+      .then((result) => {
         res.json(result);
       })
       .catch((error) => {
