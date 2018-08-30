@@ -1,5 +1,6 @@
 # alpha-project-api
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9bfac2ff11c0426cb711c27d671a4eb4)](https://app.codacy.com/app/gerson.junior/alpha-project-api?utm_source=github.com&utm_medium=referral&utm_content=GersonSales/alpha-project-api&utm_campaign=Badge_Grade_Dashboard)
 [![Build Status](https://travis-ci.org/GersonSales/alpha-project-api.svg?branch=master)](https://travis-ci.org/GersonSales/alpha-project-api)
 
 A web development class project
