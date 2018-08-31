@@ -15,8 +15,7 @@ module.exports = (app) => {
     );
 
     db = {
-      sequelize,
-      sequelize,
+      sequelize: sequelize,
       models : {}
     };
 
