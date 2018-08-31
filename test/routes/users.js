@@ -1,4 +1,5 @@
 const jwt = require("jwt-simple");
+const authTag = "Authorization";
 
 describe("Routes: Users", () => {
   const Users = app.db.models.Users;
@@ -48,7 +49,7 @@ describe("Routes: Users", () => {
       it("returns a authenticated user", (done) => {
         request
           .get("/user")
-          .set("Authorization", `Bearer ${token}`)
+          .set(authTag, `Bearer ${token}`)
           .expect(200)
           .end((error, res) => {
             expect(res.body.name).to.eql("Test User");
@@ -60,7 +61,31 @@ describe("Routes: Users", () => {
     });
   });
 
-  describe("DELETE /user", () => {});
+  describe("DELETE /user", () => {
+    describe("status 202", () => {
+      it("delete an authenticated user", (done) => {
+        request
+          .delete('/user')
+          .set(authTag, `Bearer ${token}`)
+          .expect(202)
+          .end((error, res) => {
+            done(error, res);
+          });
+      });
+    });
+  });
 
-  describe("PUT /user", () => {});
+  describe("PUT /user", () => {
+    describe("status 204", () => {
+      it("update authenticated user info", (done) => {
+        request
+          .put("/user")
+          .set(authTag, `Bearer ${token}`)
+          .expect(204)
+          .end((error, res) => {
+            done(error, res);
+          });
+      });
+    });
+  });
 });
