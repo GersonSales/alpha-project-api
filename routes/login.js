@@ -10,7 +10,7 @@ module.exports = (app) => {
       const Users = app.db.models.Users;
 
       Users
-        .findOne({where: {email: email}})
+        .findOne({where: {email}})
         .then((user) => {
           if (Users.isPassword(user.password, password)) {
             const payload = {id: user.id};
