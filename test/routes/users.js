@@ -67,7 +67,7 @@ describe("Routes: Users", () => {
         request
           .delete("/user")
           .set(authTag, `Bearer ${token}`)
-          .expect(202)s
+          .expect(202)
           .end((error, res) => {
             done(error, res);
           });
