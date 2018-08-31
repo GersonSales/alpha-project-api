@@ -1,5 +1,7 @@
-const jwt = require("jwt-simple");
-const authTag = "Authorization";
+const jwt = require("jwt-simple"),
+  authTag = "Authorization",
+  app = global.app,
+  request = global.request;
 
 describe("Routes: Users", () => {
   const Users = app.db.models.Users;
