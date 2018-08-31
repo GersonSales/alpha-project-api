@@ -18,7 +18,7 @@ module.exports = (app) => {
     .get((req, res) => {
       Users
         .findById(req.user.id, {
-          attributes: ["id", "name", "email"]
+          attributes: ["id", "name", "email", "isAdmin"],
         })
         .then((result) => {
           res.json(result);
