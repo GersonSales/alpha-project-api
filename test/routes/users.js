@@ -42,4 +42,25 @@ describe("Routes: Users", () => {
       });
     });
   });
+
+  describe("GET /user", () => {
+    describe("status 200", () => {
+      it("returns a authenticated user", (done) => {
+        request
+          .get("/user")
+          .set("Authorization", `Bearer ${token}`)
+          .expect(200)
+          .end((error, res) => {
+            expect(res.body.name).to.eql("Test User");
+            expect(res.body.email).to.eql("user@email.com");
+            expect(res.body.isAdmin).to.equal(false);
+            done(error)
+          });
+      });
+    });
+  });
+
+  describe("DELETE /user", () => {});
+
+  describe("PUT /user", () => {});
 });
