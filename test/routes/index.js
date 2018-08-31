@@ -1,3 +1,5 @@
+const request = global.request;
+
 describe("Routes: Index", () => {
   describe("GET /", () => {
     it("returns the API status", (done) => {
