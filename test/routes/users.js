@@ -55,7 +55,7 @@ describe("Routes: Users", () => {
             expect(res.body.name).to.eql("Test User");
             expect(res.body.email).to.eql("user@email.com");
             expect(res.body.isAdmin).to.equal(false);
-            done(error)
+            done(error, res);
           });
       });
     });
@@ -65,9 +65,9 @@ describe("Routes: Users", () => {
     describe("status 202", () => {
       it("delete an authenticated user", (done) => {
         request
-          .delete('/user')
+          .delete("/user")
           .set(authTag, `Bearer ${token}`)
-          .expect(202)
+          .expect(202)s
           .end((error, res) => {
             done(error, res);
           });
