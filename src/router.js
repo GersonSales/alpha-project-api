@@ -1,8 +1,8 @@
 "use strict";
-const index  = require("./index/route.js");
-const user  = require("./user/route.js");
-const menu  = require("./menu/route.js");
-const service  = require("./service/route.js");
+const index  = require("./index/route");
+const user  = require("./user/route");
+const menu  = require("./menu/route");
+const service  = require("./service/route");
 
 module.exports = (app) => {
     app.use("/", index);
