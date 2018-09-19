@@ -25,6 +25,7 @@ exports.getAll = async (req, res) => {
 exports.getById = async (req, res) => {
   try {
     const userId = req.params.id;
+    console.log("UserID: " + userId);
     const result = await repository.findById(userId);
     if (result) {
       res.status(201).json({result: result});
@@ -39,8 +40,7 @@ exports.getById = async (req, res) => {
 
 exports.put = async (req, res) => {
   try {
-    const userId = req.params.id;
-    const result = await repository.findById(userId);
+    const result = await repository.findByIdAndUpdate(req.body);
     res.status(200).json({result: result});
   } catch (error) {
     res.status(500).send({errorMessage: error.message});
@@ -52,7 +52,7 @@ exports.delete = async (req, res) => {
   try {
     const userId = req.params.id;
     await repository.deleteById(userId);
-    res.status(201).send({response: "Successful deleted."});
+    res.status(202).send({response: "Successful deleted."});
   } catch (error) {
     res.status(500).send({errorMessage: error.message});
   }

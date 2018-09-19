@@ -16,7 +16,11 @@ exports.findById = async (id) => {
   return await User.findById(id);
 };
 
+exports.findByIdAndUpdate = async (data) => {
+  await User.findOneAndUpdate(data._id, {$set: data});
+};
+
 exports.deleteById = async (id) => {
-  console.log("deleting user " + id);
+  await User.findOneAndDelete(id);
 };
 
