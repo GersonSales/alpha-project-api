@@ -1,15 +1,19 @@
 "use strict";
 
+const mongoose = require("mongoose");
+const User = mongoose.model("User");
+
 exports.create = async (data) => {
-    console.log({name: "Mocked Name", data: data});
+  const user = new User(data);
+  await user.save();
 };
 
 exports.findAll = async () => {
-  return [{name: "Mocker User 1", age: 15}, {name: "Mocker User 2", age: 42}];
+  return await User.find({});
 };
 
 exports.findById = async (id) => {
-  return {name: "Found by id(" + id + ") Mocked User", age: 20};
+  return await User.findById(id);
 };
 
 exports.deleteById = async (id) => {
