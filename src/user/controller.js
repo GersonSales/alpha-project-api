@@ -28,9 +28,9 @@ exports.getById = async (req, res) => {
     console.log("UserID: " + userId);
     const result = await repository.findById(userId);
     if (result) {
-      res.status(201).json({result: result});
+      res.status(202).json({result: result});
     }else {
-      res.status(404).send({result: "No users found!"});
+      res.status(404).send(global.noUsersFound);
     }
 
   } catch (error) {
@@ -40,8 +40,9 @@ exports.getById = async (req, res) => {
 
 exports.put = async (req, res) => {
   try {
-    const result = await repository.findByIdAndUpdate(req.body);
-    res.status(200).json({result: result});
+    const userId = req.params.id;
+    await repository.findByIdAndUpdate(userId, req.body);
+    res.status(202).send(global.successfulUpdated );
   } catch (error) {
     res.status(500).send({errorMessage: error.message});
   }

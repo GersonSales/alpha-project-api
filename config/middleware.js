@@ -2,6 +2,7 @@
 
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+require("./../lib/strings");
 require("./../src/user/schema");
 
 module.exports = async (app) => {

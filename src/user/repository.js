@@ -16,11 +16,16 @@ exports.findById = async (id) => {
   return await User.findById(id);
 };
 
-exports.findByIdAndUpdate = async (data) => {
-  await User.findOneAndUpdate(data._id, {$set: data});
+exports.findByIdAndUpdate = async (id, data) => {
+  await User.findOneAndUpdate(id, {$set: data});
 };
 
 exports.deleteById = async (id) => {
   await User.findOneAndDelete(id);
+};
+
+exports.findOne = async (data) => {
+  return await User.findOne(data);
+
 };
 
