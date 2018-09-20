@@ -20,12 +20,12 @@ exports.audit = async (req, res, next) => {
       if (data) {
         next();
       } else {
-        res.status(401).send(global.notAuthorized);
+        res.status(401).send();
       }
     } catch (error) {
       res.status(500).send(error.message);
     }
   } else {
-    res.status(401).send(global.notAuthorized);
+    res.status(401).send();
   }
 };

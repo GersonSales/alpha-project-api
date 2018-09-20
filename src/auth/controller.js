@@ -18,9 +18,12 @@ exports.authenticate = async (req, res) => {
       };
 
       const token = await service.generateToken(payload);
-      res.status(200).json({token: token});
+      const result = {};
+      const key = global.accessTokenHeader;
+      result[key] = token;
+      res.status(200).json(result);
     }else {
-      res.status(401).send(global.notAuthorized);
+      res.status(401).send();
     }
   }catch (error) {
     res.status(500).send({errorMessage: error.message});

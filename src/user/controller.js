@@ -7,7 +7,7 @@ exports.post = async (req, res) => {
     const key = req.body.email + req.body.password + global.SALT_KEY;
     req.body.password = md5(key);
     await repository.create(req.body);
-    res.status(201).json({message: "User successful created."})
+    res.status(201).send();
   } catch (error) {
     res.status(404).send({errorMessage: error.message })
   }
