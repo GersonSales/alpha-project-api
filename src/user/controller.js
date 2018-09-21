@@ -16,7 +16,7 @@ exports.post = async (req, res) => {
 exports.getAll = async (req, res) => {
   try {
     const result = await repository.findAll();
-    res.status(200).json({result})
+    res.status(200).json({result});
   } catch (error) {
     res.status(500).send({errorMessage: error.message});
   }

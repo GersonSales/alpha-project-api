@@ -1,7 +1,7 @@
 "use strict";
 
-const express = new require("express");
-const router = express.Router();
+const express = require("express");
+const router = new express.Router();
 
 router.get("/", (req, res) => {
         res.status(200).json({response : "Welcome to the Alpha project"});
