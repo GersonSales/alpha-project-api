@@ -9,32 +9,31 @@ exports.post = async (req, res) => {
     await repository.create(req.body);
     res.status(201).send();
   } catch (error) {
-    res.status(404).send({errorMessage: error.message })
+    res.status(404).send({errorMessage: error.message });
   }
 };
 
 exports.getAll = async (req, res) => {
   try {
     const result = await repository.findAll();
-    res.status(200).json({result: result})
+    res.status(200).json({result})
   } catch (error) {
-    res.status(500).send({errorMessage: error.message})
+    res.status(500).send({errorMessage: error.message});
   }
 };
 
 exports.getById = async (req, res) => {
   try {
     const userId = req.params.id;
-    console.log("UserID: " + userId);
     const result = await repository.findById(userId);
     if (result) {
-      res.status(202).json({result: result});
+      res.status(202).json({result});
     }else {
       res.status(404).send(global.noUsersFound);
     }
 
   } catch (error) {
-    res.status(500).send({errorMessage: error.message})
+    res.status(500).send({errorMessage: error.message});
   }
 };
 

@@ -9,7 +9,7 @@ exports.authenticate = async (req, res) => {
     const email = req.body.email;
     const password = md5(email + req.body.password + global.SALT_KEY);
 
-    const user = await repository.findOne({email: email, password: password});
+    const user = await repository.findOne({email, password});
 
     if (user) {
       const payload = {
