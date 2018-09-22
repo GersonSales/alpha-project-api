@@ -10,4 +10,5 @@ global.successfulCreated = "Successful created.";
 global.newUserIsCreated = "New user is created.";
 global.congratsMessage = "Welcome to the Alpha Project API";
 global.adminRole = "ADMIN";
+global.appPort = "3000";
 
