@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 require("../res/strings");
 require("./../src/user/schema");
 
-module.exports = async (app) => {
+module.exports = async(app) => {
   try {
     app.set("port", 3000);
 
