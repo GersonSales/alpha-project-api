@@ -26,6 +26,9 @@ exports.deleteById = async (id) => {
 
 exports.findOne = async (data) => {
   return await User.findOne(data);
+};
 
+exports.deleteAll = async () => {
+  await User.destroy({});
 };
 
