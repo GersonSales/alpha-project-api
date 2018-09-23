@@ -64,8 +64,7 @@ let getDataFromReq = async (req) => {
   const token = req.body.token || req.query.token || req.headers[global.accessTokenHeader];
   try {
     return await this.decodeToken(token);
-  } catch (e) {
-    console.log("ERROR: " + e);
+  } catch (error) {
     return error;
   }
 };
