@@ -6,10 +6,13 @@ const mongoose = require("mongoose");
 require("../res/strings");
 require("./../src/user/schema");
 
-module.exports = async(app) => {
+module.exports = async (app) => {
   try {
-    app.set("port", 3000);
-
+    let port = process.env.API_HOST;
+    if (!port) {
+      port = 3000;
+    }
+    app.set("port", port);
 
     app.use(bodyParser());
     await mongoose.connect(global.dbConnectionLink, {useNewUrlParser: true});

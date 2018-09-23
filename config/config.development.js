@@ -1,1 +1,2 @@
-global.dbConnectionLink = "mongodb://root:alph4root@ds261302.mlab.com:61302/alpha_project_db";
+global.dbConnectionLink = "mongodb+srv://alpha-project-user:0A91KNH54pph1uhF@alphaprojectcluster-cfqnv.mongodb.net/test?retryWrites=true";
+// global.dbConnectionLink = "mongodb://root:alph4root@ds261302.mlab.com:61302/alpha_project_db";

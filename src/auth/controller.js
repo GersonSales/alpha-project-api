@@ -13,6 +13,7 @@ exports.authenticate = async (req, res) => {
 
     if (user) {
       const payload = {
+        id: user._id,
         email: user.email,
         role: user.role
       };
