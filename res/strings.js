@@ -12,3 +12,10 @@ global.congratsMessage = "Welcome to the Alpha Project API";
 global.adminRole = "ADMIN";
 global.appPort = "3000";
 
+
+//Environment variables
+global.envTest = "test";
+global.envDevelopment = "development";
+global.envC3po = "c3po";
+
+
