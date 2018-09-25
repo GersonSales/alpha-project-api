@@ -14,7 +14,7 @@ module.exports = async (app) => {
     app.set("port", port);
 
     app.use(bodyParser());
-    await mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
+    await mongoose.connect(global.dbConnectionLink, {useNewUrlParser: true});
   } catch (error) {
     console.error(error);
   }
