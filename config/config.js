@@ -13,5 +13,7 @@ module.exports = (app) => {
       return require("./config.development");
      case global.envC3po:
       return require("./config.c3po");
+    case global.production:
+      return require("./config.production");
   }
 };

@@ -17,5 +17,6 @@ global.appPort = "3000";
 global.envTest = "test";
 global.envDevelopment = "development";
 global.envC3po = "c3po";
+global.production = "production";
 
 
