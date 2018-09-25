@@ -7,7 +7,7 @@ require("./../src/user/schema");
 
 module.exports = async (app) => {
   try {
-    let port = process.env.API_HOST;
+    let port = process.env.PORT;
     if (!port) {
       port = 3030;
     }
