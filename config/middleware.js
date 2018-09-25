@@ -9,12 +9,12 @@ module.exports = async (app) => {
   try {
     let port = process.env.API_HOST;
     if (!port) {
-      port = 3000;
+      port = 3030;
     }
     app.set("port", port);
 
     app.use(bodyParser());
-    await mongoose.connect(global.dbConnectionLink, {useNewUrlParser: true});
+    await mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
   } catch (error) {
     console.error(error);
   }
