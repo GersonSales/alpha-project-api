@@ -24,7 +24,7 @@
     }
   ],
 
-  "host" : "localhost:3000" ,
+  "host" : "localhost:3000",
   "basePath" : "/",
   "tags" : [ {
     "name" : "User",

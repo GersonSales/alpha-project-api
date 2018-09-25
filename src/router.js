@@ -14,6 +14,8 @@ module.exports = (app) => {
   app.use("/menu", menu);
   app.use("/service", service);
   app.use("/auth", auth);
+
+  swaggerDocument.host = process.env.HOST;
   app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 };
 
