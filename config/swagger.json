@@ -9,7 +9,22 @@
       "url" : "https://opensource.org/licenses/MIT"
     }
   },
-  "host" : "localhost:${API_HOST}" ,
+
+  "securityDefinitions": {
+    "jwt": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "x-access-token"
+    }
+  },
+
+  "security": [
+    {
+      "jwt": []
+    }
+  ],
+
+  "host" : "localhost:3000" ,
   "basePath" : "/",
   "tags" : [ {
     "name" : "User",
@@ -30,6 +45,9 @@
             "schema" : {
               "$ref" : "#/definitions/User"
             }
+          },
+          "401": {
+            "description": "Unauthorized: "
           }
         }
       },
