@@ -1,1 +1,0 @@
-global.dbConnectionLink = process.env.PROD_MONGODB;

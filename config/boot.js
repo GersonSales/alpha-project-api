@@ -1,11 +1,17 @@
 "use strict";
 
-module.exports = (app) => {
-  if (process.env.NODE_ENV !== "test") {
-    const port = app.get("port");
-    app.listen(port, () => {
-      console.log("Api project hr is listening on port " + port);
-    });
+const mongoose = require("mongoose");
+
+module.exports = async (app) => {
+  try {
+    if (process.env.NODE_ENV !== "test") {
+      await mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
+      const port = process.env.PORT;
+      app.listen(port, () => {
+        console.log("Aalpha Project is listening on port " + port);
+      });
+    }
+  } catch (error) {
+    console.log(error.message);
   }
-}
-;
+};
