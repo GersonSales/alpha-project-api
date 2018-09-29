@@ -13,10 +13,13 @@ global.adminRole = "ADMIN";
 global.appPort = "3000";
 
 
+//Database
+global.dbConnectionFailed = "Cannot connect to the data base.";
+
+
 //Environment variables
 global.envTest = "test";
-global.envDevelopment = "development";
-global.envC3po = "c3po";
+global.development = "development";
 global.production = "production";
 
 
