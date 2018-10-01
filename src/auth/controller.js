@@ -1,13 +1,12 @@
 "use strict";
 
-const md5 = require("md5");
 const repository = require("./../user/repository");
 const service = require("./service");
 
 exports.authenticate = async (req, res) => {
   try {
     const email = req.body.email;
-    const password = md5(email + req.body.password + global.SALT_KEY);
+    const password = auth.encrypt(req.body.password);
 
     const user = await repository.findOne({email, password});
 
