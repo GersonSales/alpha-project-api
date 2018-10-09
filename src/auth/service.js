@@ -12,7 +12,7 @@ exports.encrypt = (string) => {
 
 exports.isMatch = (string, encryptedString) => {
   const comp = md5(string + global.SALT_KEY);
-  return bcrypt.compareSync(comp, encryptedString)
+  return bcrypt.compareSync(comp, encryptedString);
 };
 
 
