@@ -1,6 +1,19 @@
 "use strict";
 
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
+const md5 = require("md5");
+
+exports.encrypt = (string) => {
+  const hash = md5(string + global.SALT_KEY);
+  const salt = bcrypt.genSaltSync();
+  return bcrypt.hashSync(hash, salt);
+};
+
+exports.isMatch = (string, encryptedString) => {
+  const comp = md5(string + global.SALT_KEY);
+  return bcrypt.compareSync(comp, encryptedString);
+};
 
 
 exports.generateToken = async (data) => {
