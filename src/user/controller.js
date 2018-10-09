@@ -5,6 +5,8 @@ const auth = require("./../auth/service");
 exports.post = async (req, res) => {
   try {
     req.body.password = auth.encrypt(req.body.password);
+    console.log("UserPassword: " + req.body.password);
+
 
     await repository.create(req.body);
     res.status(201).send(global.newUserIsCreated);

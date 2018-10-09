@@ -10,6 +10,11 @@ exports.encrypt = (string) => {
   return bcrypt.hashSync(hash, salt);
 };
 
+exports.isMatch = (string, encryptedString) => {
+  const comp = md5(string + global.SALT_KEY);
+  return bcrypt.compareSync(comp, encryptedString)
+};
+
 
 exports.generateToken = async (data) => {
   return jwt.sign(data, global.SALT_KEY, {expiresIn: global.oneHour});
