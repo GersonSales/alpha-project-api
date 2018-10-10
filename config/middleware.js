@@ -1,21 +1,12 @@
 "use strict";
 
 const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 
-require("../res/strings");
 require("./../src/user/schema");
+require("./../src/dish/schema");
 
-module.exports = async (app) => {
-  try {
-    app.set("port", 3000);
-
-
-    app.use(bodyParser());
-    if (global.dbConnectionLink) {
-      await mongoose.connect(global.dbConnectionLink, {useNewUrlParser: true});
-    }
-  } catch (error) {
-    console.error(error);
-  }
+module.exports = (app) => {
+  app.use(bodyParser());
+  dotenv.load();
 };

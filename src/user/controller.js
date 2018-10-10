@@ -1,11 +1,13 @@
 "use strict";
 const repository = require("./repository");
-const md5 = require("md5");
+const auth = require("./../auth/service");
 
 exports.post = async (req, res) => {
   try {
-    const key = req.body.email + req.body.password + global.SALT_KEY;
-    req.body.password = md5(key);
+    req.body.password = auth.encrypt(req.body.password);
+    console.log("UserPassword: " + req.body.password);
+
+
     await repository.create(req.body);
     res.status(201).send(global.newUserIsCreated);
   } catch (error) {
