@@ -8,6 +8,7 @@ const authenticate = auth.authenticate;
 const authorizeByRole = auth.authorizeByRole;
 
 router.get("/", controller.get);
+router.post("/", controller.create);
 router.post("/", authenticate, authorizeByRole, controller.create);
 
 router.put("/:id",  controller.edit);

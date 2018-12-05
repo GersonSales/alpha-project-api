@@ -17,7 +17,14 @@ const schema = new Schema({
     required: true,
     enum: ["DINNER", "LUNCH"],
     default: "DINNER"
-
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  image: {
+    type: String,
+    required: true
   }
 });
 

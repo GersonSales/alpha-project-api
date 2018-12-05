@@ -377,7 +377,10 @@
       "required": [
         "name",
         "price",
-        "type"
+        "type",
+        "description",
+        "image"
+
       ],
       "properties": {
         "name": {
@@ -388,12 +391,20 @@
         },
         "type": {
           "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
         }
       },
       "example": {
         "name": "Taco",
         "price": "15.99",
-        "type": "DINNER"
+        "type": "DINNER",
+        "description": "A taco is a traditional Mexican dish consisting of a corn or wheat tortilla folded or rolled around a filling. A taco can be made with a variety of fillings, including beef, pork, chicken, seafood, vegetables, and cheese, allowing great versatility and variety.",
+        "image": "https://goo.gl/zaA8oG"
       }
     }
   }
