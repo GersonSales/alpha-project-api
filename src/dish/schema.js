@@ -15,8 +15,6 @@ const schema = new Schema({
   type: {
     type: String,
     required: true,
-    enum: ["DINNER", "LUNCH"],
-    default: "DINNER"
   },
   description: {
     type: String,

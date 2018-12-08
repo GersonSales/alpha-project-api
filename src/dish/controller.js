@@ -26,6 +26,8 @@ exports.edit = async (req, res) => {
 
 exports.create = async (req, res) => {
   console.log("Trying to create a new dish.");
+  console.log(req.body);
+
   try {
     await repository.create(req.body);
     console.log("Dish successfully created.");
