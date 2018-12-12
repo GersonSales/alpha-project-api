@@ -38,6 +38,7 @@ exports.authenticate = async (req, res, next) => {
         res.status(401).send();
       }
     } catch (error) {
+      console.log("Error while trying to authenticate. Error Message: " + error.message);
       res.status(500).send(error.message);
     }
   } else {

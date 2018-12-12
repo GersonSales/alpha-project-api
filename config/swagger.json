@@ -13,7 +13,7 @@
     "jwt": {
       "type": "apiKey",
       "in": "header",
-      "name": "x-access-token"
+      "name": "token"
     }
   },
   "security": [
@@ -362,15 +362,15 @@
     },
     "Token": {
       "required": [
-        "x-access-token"
+        "token"
       ],
       "properties": {
-        "x-access-token": {
+        "token": {
           "type": "string"
         }
       },
       "example": {
-        "x-access-token": "eyJhbGciI1NiIsInR5cC.eyJlbWFpbTc2MTEzfQ.jJhI2hgPM4ZV--mSB9tHSY"
+        "token": "eyJhbGciI1NiIsInR5cC.eyJlbWFpbTc2MTEzfQ.jJhI2hgPM4ZV--mSB9tHSY"
       }
     },
     "Dish": {

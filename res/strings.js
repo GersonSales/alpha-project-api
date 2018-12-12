@@ -1,7 +1,7 @@
 "use strict";
 
 global.notAuthorized = "Not authorized.";
-global.accessTokenHeader = "x-access-token";
+global.accessTokenHeader = "token";
 global.oneHour = "1h";
 global.noUsersFound = "No users found.";
 global.successfulUpdated = "Successful updated.";
