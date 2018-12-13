@@ -31,7 +31,7 @@ exports.getById = async (req, res) => {
     if (user) {
       const result = {
         firstName: user.firstName,
-        lasName: user.lastName,
+        lastName: user.lastName,
         email: user.email,
         role: user.role,
         phone: user.phone
