@@ -17,6 +17,6 @@ module.exports = (app) => {
 
   swaggerDocument.host = process.env.HOST;
   app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-  app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+  // app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 };
 
