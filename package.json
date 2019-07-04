@@ -6,7 +6,9 @@
   "scripts": {
     "test": "NODE_ENV=test mocha src/test/**/*.js",
     "start": "nodemon app.js",
-    "startDev": "NODE_ENV=development nodemon app.js"
+    "startDev": "NODE_ENV=development nodemon app.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -35,9 +37,11 @@
     "process-nextick-args": "^2.0.0",
     "supertest": "^3.3.0",
     "swagger-ui-express": "^4.0.1",
-    "util-deprecate": "^1.0.2"
+    "util-deprecate": "^1.0.2",
+    "snyk": "^1.189.0"
   },
   "engines": {
     "node": "8.x"
-  }
+  },
+  "snyk": true
 }
